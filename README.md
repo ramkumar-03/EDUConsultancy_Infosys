@@ -1,19 +1,22 @@
-# EDUConsultancy_Infosys
-# Education Consultancy Full-Stack Project - Spring Boot & Angular
-This repository contains the backend and front-end code for the Education Consultancy project, built using Spring Boot (backend) and Angular (frontend). The backend provides RESTful APIs for managing educational consultancy services, and the front-end interacts with these APIs to deliver a seamless user experience.
+## Education Consultancy Full-Stack Project
+This project is a full-stack web application built using Spring Boot for the backend and Angular for the frontend. It is designed to manage educational consultancy services, allowing operations such as student management, course enrollment, and consultation booking.
 
-# Key Features:
-Spring Boot for Java-based RESTful service development.
-Angular for building a dynamic and responsive user interface.
-MySQL Database for data storage and management.
-Maven for project build and dependency management.
-Spring Data JPA for easy interaction with the database.
-REST API Endpoints for CRUD operations on student and course data.
-Postman for testing RESTful APIs.
-Exception Handling for managing errors effectively.
+## Project Overview
+The project aims to provide a platform for students and consultants to interact and manage various educational services. The backend is developed using Spring Boot with a MySQL database for persistence, and the frontend is powered by Angular, which interacts with the backend via REST APIs.
 
-# Technologies Used:
-Backend: Spring Boot, Java, MySQL, Spring Data JPA, Maven
-Frontend: Angular
-API Testing: Postman
-Database: MySQL
+## Key Features:
+RESTful API using Spring Boot and Spring Data JPA
+MySQL database for data storage
+Angular frontend for a dynamic user interface
+Postman for testing API endpoints
+Built and managed with Maven
+## Technologies Used
+# Backend:
+Java (Spring Boot)
+Spring Data JPA
+MySQL (Database)
+Maven (Build tool)
+# Frontend:
+Angular
+# API Testing:
+Postman
