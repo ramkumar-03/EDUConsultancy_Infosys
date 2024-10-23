@@ -5,18 +5,18 @@ This project is a full-stack web application built using Spring Boot for the bac
 The project aims to provide a platform for students and consultants to interact and manage various educational services. The backend is developed using Spring Boot with a MySQL database for persistence, and the frontend is powered by Angular, which interacts with the backend via REST APIs.
 
 ## Key Features:
-RESTful API using Spring Boot and Spring Data JPA
-MySQL database for data storage
-Angular frontend for a dynamic user interface
-Postman for testing API endpoints
-Built and managed with Maven
+- RESTful API using Spring Boot and Spring Data JPA
+- MySQL database for data storage
+- Angular frontend for a dynamic user interface
+- Postman for testing API endpoints
+- Built and managed with Maven
 ## Technologies Used
 # Backend:
-Java (Spring Boot)
-Spring Data JPA
-MySQL (Database)
-Maven (Build tool)
+- Java (Spring Boot)
+- Spring Data JPA
+- MySQL (Database)
+- Maven (Build tool)
 # Frontend:
-Angular
+- Angular
 # API Testing:
-Postman
+- Postman
