@@ -37,22 +37,22 @@ public class BatchServiceIMPL implements BatchService {
 
     @Override
     public List<BatchDTO> getAllBatches() {
-
         List<Batch> getBatches = batchRepo.findAll();
         List<BatchDTO> batchDTOList = new ArrayList<>();
-        for(Batch batch:getBatches)
-        {
+
+        for (Batch batch : getBatches) {
             BatchDTO batchDTO = new BatchDTO(
                     batch.getBatchid(),
                     batch.getBatchname(),
-                    batch.getCourse(),
+                    batch.getCourse().getCourseid(),    // Course ID
+                    batch.getCourse().getCoursename(),  // Course name
                     batch.getStartdate()
             );
             batchDTOList.add(batchDTO);
         }
         return batchDTOList;
-
     }
+
 
     @Override
     public String updateBatch(BatchUpdateDTO batchUpdateDTO) {

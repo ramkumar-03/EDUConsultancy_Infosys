@@ -1,6 +1,5 @@
 package com.educon.dto;
 
-import com.educon.entity.Course;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,8 @@ public class BatchDTO {
 
     private int batchid;
     private String batchname;
-    private Course course;
+    private int courseId;        // Only the ID of the course
+    private String courseName;   // Only the name of the course
     private String startdate;
 
 }
