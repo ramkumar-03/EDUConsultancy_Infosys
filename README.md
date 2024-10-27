@@ -29,7 +29,10 @@ The project aims to provide a platform for students and consultants to interact 
 - Course
 - Batch
 - Enrollment
+  
+## Spring Initializr:
+![image](https://github.com/user-attachments/assets/4186247b-675a-4df5-b516-8e18fdb97153)
 
-
+## Database:
 ![image](https://github.com/user-attachments/assets/666f4696-a4f2-484a-9c84-1fab0982bbf2)
 
