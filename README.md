@@ -23,4 +23,5 @@ The project aims to provide a platform for students and consultants to interact 
   
 ![Screenshot 2024-10-23 163039](https://github.com/user-attachments/assets/7f4b803a-74dc-4442-90ff-9ba499095312)
 ![Screenshot 2024-10-23 162443](https://github.com/user-attachments/assets/86c13e01-c05a-4b81-ac6e-31316e8c80bb)
+![image](https://github.com/user-attachments/assets/666f4696-a4f2-484a-9c84-1fab0982bbf2)
 
