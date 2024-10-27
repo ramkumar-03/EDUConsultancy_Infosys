@@ -1,5 +1,6 @@
 package com.educon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;  // Import this
 import jakarta.persistence.*;
 import lombok.Getter;
 import java.util.Set;
@@ -11,19 +12,20 @@ public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="course_id", length = 11)
+    @Column(name = "course_id", length = 11)
     private int courseid;
 
-    @Column(name="course_name", length = 45)
+    @Column(name = "course_name", length = 45)
     private String coursename;
 
-    @Column(name="syllabus", length = 60)
+    @Column(name = "syllabus", length = 60)
     private String syllabus;
 
-    @Column(name="duration", length = 12)
+    @Column(name = "duration", length = 12)
     private String duration;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore  // Prevent recursion by ignoring this field
     private Set<Batch> batches; // Correct import from com.educon.entity
 
     public Course(int courseid, String coursename, String syllabus, String duration) {

@@ -1,9 +1,11 @@
 package com.educon.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;  // Import this
 import jakarta.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name="batch")
+@Table(name = "batch")
 public class Batch {
 
     @Id
@@ -19,10 +21,11 @@ public class Batch {
 
     @ManyToOne
     @JoinColumn(name = "course_id", nullable = false)
+    @JsonIgnore  // Prevent recursion by ignoring this field
     private Course course;
 
-    /*@OneToMany(mappedBy = "batch")
-    private Set<Enrollment> entrollments;*/
+    @OneToMany(mappedBy = "batch")
+    private Set<Enrollment> enrollments;
 
 
     public Batch(int batchid, String batchname, String startdate, Course course) {
