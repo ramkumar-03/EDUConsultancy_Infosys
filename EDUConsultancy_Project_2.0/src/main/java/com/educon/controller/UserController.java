@@ -5,6 +5,8 @@ import com.educon.dto.UserSaveDTO;
 import com.educon.dto.UserUpdateDTO;
 import com.educon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,28 +21,37 @@ public class UserController {
 
     // Endpoint to save a new user
     @PostMapping(path="/save")
-    public String saveUser(@RequestBody UserSaveDTO userSaveDTO) {
-        String username = userService.addUser(userSaveDTO);
-        return "User " + username + " saved successfully!";
+    public ResponseEntity<String> saveUser(@RequestBody UserSaveDTO userSaveDTO) {
+        try {
+            String username = userService.addUser(userSaveDTO);
+            return ResponseEntity.status(HttpStatus.CREATED).body("User " + username + " saved successfully!");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     // Endpoint to fetch all users
     @GetMapping("/getAllUsers")
-    public List<UserDTO> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        List<UserDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
     // Endpoint to update an existing user
     @PutMapping(path = "/update")
-    public String updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {
+    public ResponseEntity<String> updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {
         String username = userService.updateUser(userUpdateDTO);
-        return "User " + username + " updated successfully!";
+        return username != null
+                ? ResponseEntity.ok("User " + username + " updated successfully!")
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User ID not found.");
     }
 
     // Endpoint to delete a user by ID
     @DeleteMapping(path = "/delete/{id}")
-    public String deleteUser(@PathVariable(value = "id") int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable(value = "id") int id) {
         boolean isDeleted = userService.deleteUser(id);
-        return isDeleted ? "User deleted successfully!" : "User ID not found.";
+        return isDeleted
+                ? ResponseEntity.ok("User deleted successfully!")
+                : ResponseEntity.status(HttpStatus.NOT_FOUND).body("User ID not found.");
     }
 }

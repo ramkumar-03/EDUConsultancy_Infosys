@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceIMPL implements UserService {
@@ -20,6 +21,11 @@ public class UserServiceIMPL implements UserService {
 
     @Override
     public String addUser(UserSaveDTO userSaveDTO) {
+        Optional<User> existingUser = userRepo.findByUsername(userSaveDTO.getUsername());
+        if (existingUser.isPresent()) {
+            throw new IllegalArgumentException("Username already exists.");
+        }
+
         User user = new User(
                 userSaveDTO.getUsername(),
                 userSaveDTO.getEmail(),
