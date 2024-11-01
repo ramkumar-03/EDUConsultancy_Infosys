@@ -7,6 +7,7 @@ import com.educon.entity.User;
 import com.educon.repo.UserRepo;
 import com.educon.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,6 +20,10 @@ public class UserServiceIMPL implements UserService {
     @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+
     @Override
     public String addUser(UserSaveDTO userSaveDTO) {
         Optional<User> existingUser = userRepo.findByUsername(userSaveDTO.getUsername());
@@ -29,7 +34,7 @@ public class UserServiceIMPL implements UserService {
         User user = new User(
                 userSaveDTO.getUsername(),
                 userSaveDTO.getEmail(),
-                userSaveDTO.getPassword(),
+                passwordEncoder.encode(userSaveDTO.getPassword()), // Encrypt the password
                 userSaveDTO.getUsertype()
         );
 

@@ -82,6 +82,6 @@ public class User {
 
     // Enum for UserType
     public enum UserType {
-        STUDENT, PARENT, TEACHER
+        STUDENT, PARENT, TEACHER, ADMIN
     }
 }
